@@ -75,7 +75,8 @@ export default{
         if(data == null){
             localStorage.setItem("lbl-note-data", JSON.stringify({
                 todo: [],
-                done: []
+                done: [],
+                isAutoBoot: false
             }));
         } else {
             data = JSON.parse(data);
@@ -245,7 +246,7 @@ export default{
             localStorage.setItem('lbl-note-data', JSON.stringify({
                 todo: this.todo,
                 done: this.done,
-                isAutoBoot: false
+                isAutoBoot: this.isAutoBoot
             }));
         }
     }
