@@ -28,7 +28,7 @@
             </div>
             
             <div class="app-content-item-list">
-                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 100px;" v-if="currentList.length == 0">
+                <div style="display: flex; flex-direction: column; align-items: center; position: absolute; transform: translate(-50%, -50%); left: 50%; top: 50%;" v-if="currentList.length == 0">
                     <img src="@/assets/icons/empty.png" />
                     <span>这里没有任何东西</span>
                 </div>
