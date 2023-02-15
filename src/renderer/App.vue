@@ -29,7 +29,7 @@
 
 html, body{
   width: 350px;
-  height: 450px;
+  height: 100vh;
   margin: 0;
   padding: 0;
   overflow: hidden;

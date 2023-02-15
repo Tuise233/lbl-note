@@ -20,14 +20,17 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
+    minWidth: 350,
     width: 350,
-    height: 450,
+    minHeight: 200,
+    maxHeight: 450,
+    height: 260,
     useContentSize: true,
     webPreferences: {
       nodeIntegration: true
     },
     frame: false,
-    resizable: false,
+    // resizable: false,
     transparent: true
   })
 
@@ -36,7 +39,7 @@ function createWindow () {
   // 设置窗口是否可以由用户手动最大化。
   mainWindow.setMaximizable(false)
   // 设置用户是否可以调节窗口尺寸
-  mainWindow.setResizable(false)
+  // mainWindow.setResizable(false)
 
   mainWindow.on('closed', () => {
     mainWindow = null
