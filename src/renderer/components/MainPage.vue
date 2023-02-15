@@ -3,7 +3,10 @@
         <div class="app-header">
             <span style="font-size: 12px; margin-left: 10px;">拉布拉记</span>
             <div style="display: flex; margin-left: auto; margin-right: 10px;">
-                <img v-on:click="top" style="margin-left: auto; margin-right: 10px;" src="@/assets/icons/top-disable.png" />
+                <img v-on:click="boot" style="margin-left: auto; margin-right: 10px;" src="@/assets/icons/boot-disable.png" v-if="isAutoBoot == false" />
+                <img v-on:click="boot" style="margin-left: auto; margin-right: 10px;" src="@/assets/icons/boot-enable.png" v-else />
+                <img v-on:click="top" style="margin-left: auto; margin-right: 10px;" src="@/assets/icons/top-disable.png" v-if="isTopWindow == false" />
+                <img v-on:click="top" style="margin-left: auto; margin-right: 10px;" src="@/assets/icons/top-enable.png" v-else />
                 <img v-on:click="minimize" style="margin-left: auto; margin-right: 10px;" src="@/assets/icons/minimize.png" />
                 <img v-on:click="close" src="@/assets/icons/close.png" />
             </div>
@@ -57,14 +60,15 @@ export default{
             currentPage: 'todo', //todo done
             currentList: [],
             todo: [],
-            done: []
+            done: [],
+            isTopWindow: false,
+            isAutoBoot: false
         }
     },
 
     created(){
         //判断是否存在数据
         let data = localStorage.getItem("lbl-note-data");
-        console.log(data);
         if(data == null){
             localStorage.setItem("lbl-note-data", JSON.stringify({
                 todo: [],
@@ -74,6 +78,7 @@ export default{
             data = JSON.parse(data);
             this.todo = data['todo'];
             this.done = data['done'];
+            this.isAutoBoot = data['isAutoBoot'];
             this.currentList = this.todo;
         }
 
@@ -93,6 +98,13 @@ export default{
 
         top(){
             ipcRenderer.send('window:top');
+            this.isTopWindow = !this.isTopWindow;
+        },
+
+        boot(){
+            this.isAutoBoot = !this.isAutoBoot;
+            ipcRenderer.send('window:toggleAutoBoot', this.isAutoBoot);
+            this.saveData();
         },
 
         togglePage(type){
@@ -195,7 +207,8 @@ export default{
             }
             localStorage.setItem('lbl-note-data', JSON.stringify({
                 todo: this.todo,
-                done: this.done
+                done: this.done,
+                isAutoBoot: false
             }));
         }
     }

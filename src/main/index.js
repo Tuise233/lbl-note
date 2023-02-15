@@ -73,6 +73,15 @@ ipcMain.on('window:top', () => {
   mainWindow.setAlwaysOnTop(top);
 });
 
+const ex = process.execPath;
+ipcMain.on('window:toggleAutoBoot', (e, state) => {
+  app.setLoginItemSettings({
+    openAtLogin: state,
+    path: ex,
+    args: []
+  })
+});
+
 /**
  * Auto Updater
  *
