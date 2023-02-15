@@ -62,7 +62,10 @@ export default{
             todo: [],
             done: [],
             isTopWindow: false,
-            isAutoBoot: false
+            isAutoBoot: false,
+
+            isCtrlDown: false,
+            isEnterDown : false
         }
     },
 
@@ -84,7 +87,41 @@ export default{
 
         setInterval(() => {
             this.saveData();
+            
+            if(this.isCtrlDown == true && this.isEnterDown == true){
+                this.createNewNote();
+                this.isCtrlDown = false;
+                this.isEnterDown = false;
+            }
         }, 200);
+
+        document.onkeydown = (e) => {
+            switch(e.code){
+                case "ControlLeft":{
+                    this.isCtrlDown = true;
+                    break;
+                }
+
+                case "Enter":{
+                    this.isEnterDown = true;
+                    break;
+                }
+            }
+        };
+
+        document.onkeyup = (e) => {
+            switch(e.code){
+                case "ControlLeft":{
+                    this.isCtrlDown = false;
+                    break;
+                }
+
+                case "Enter":{
+                    this.isEnterDown = false;
+                    break;
+                }
+            }
+        };
     },
 
     methods: {
