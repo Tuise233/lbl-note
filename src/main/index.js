@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, ipcMain, screen } from 'electron'
 import '../renderer/store'
 
 /**
@@ -19,12 +19,16 @@ function createWindow () {
   /**
    * Initial window options
    */
+  const { width: screenW, height: screenH } = screen.getPrimaryDisplay().workAreaSize;
+
   mainWindow = new BrowserWindow({
     minWidth: 350,
     width: 350,
     minHeight: 200,
     maxHeight: 450,
     height: 260,
+    x: screenW - 350,
+    y: 0,
     useContentSize: true,
     webPreferences: {
       nodeIntegration: true
@@ -38,12 +42,22 @@ function createWindow () {
 
   // 设置窗口是否可以由用户手动最大化。
   mainWindow.setMaximizable(false)
+  
   // 设置用户是否可以调节窗口尺寸
   // mainWindow.setResizable(false)
 
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  //窗口吸附
+  setInterval(() => {
+    let [x, y] = mainWindow.getPosition();
+
+    if(screenW - (x + 350) < 0){
+      mainWindow.setPosition(screenW - 350, y, 0);
+    }
+  }, 500);
 }
 
 app.on('ready', createWindow)
