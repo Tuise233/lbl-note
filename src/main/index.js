@@ -23,6 +23,7 @@ function createWindow () {
 
   mainWindow = new BrowserWindow({
     minWidth: 350,
+    maxWidth: 650,
     width: 350,
     minHeight: 200,
     maxHeight: 450,
@@ -34,7 +35,6 @@ function createWindow () {
       nodeIntegration: true
     },
     frame: false,
-    // resizable: false,
     transparent: true
   })
 

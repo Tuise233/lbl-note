@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="primary_color">
     <MainPage />
   </div>
 </template>

@@ -253,7 +253,8 @@ export default{
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+@import "../assets/style/index.less";
 .app-main{
     width: 350px;
     height: 100vh;
@@ -270,7 +271,8 @@ export default{
     height: 28px;
     display: flex;
     align-items: center;
-    background-color: #EBF3FE;
+    background-color: @navbar-backcolor;
+    color: @navbar-textcolor;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     -webkit-app-region: drag;
@@ -317,7 +319,7 @@ export default{
 }
 
 .app-content-item-list-children{
-    width: 330px;
+    width: calc(100% - 10px);
     box-sizing: border-box;
     padding: 10px 0;
     background-color: #F0F5F9;
