@@ -1,3 +1,32 @@
 .dark_color{
-    --navbar-backcolor: #505152;
+    --navbar-backcolor: #EBF3FE;
+    --navbar-textcolor: black;
+
+    --main-backcolor: rgb(44,42,56);
+    --header-backcolor: rgb(52,52,66); 
+
+    --tabbar-backcolor: rgb(66,66,78);
+    --tabbar-header-border-color: rgb(85,79,79);
+    --tabbar-header-textcolor: white;
+    --tabbar-item-hover-backcolor: #494949;
+    --tabbar-item-enable-backcolor: rgb(44,42,56);
+    --tabbar-item-enable-textcolor: white;
+    --tabbar-item-disable-textcolor: #8a8989;
+    --tabbar-item-copyright-textcolor: rgb(207,212,212);
+
+    --todo-header-textcolor: white;
+    --todo-header-border-color: rgb(85,79,79);
+    --todo-header-button-backcolor: rgb(52,52,66);
+    --todo-list-item-backcolor: rgb(52,52,66);
+    --todo-list-item-textcolor: white;
+    --todo-list-item-img-container-backcolor: rgb(61, 61, 75);
+    --todo-list-item-datetime-textcolor: #ECECEC;
+
+    --setting-textcolor: white;
+    --setting-item-backcolor: rgb(52,52,66);
+
+    --checkbox-backcolor: #5F5F5F;
+    --togglebox-textcolor: white;
+    --togglebox-disable-backcolor: #454545;
+    --togglebox-enable-backcolor: #244452; 
 }

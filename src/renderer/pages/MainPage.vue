@@ -64,9 +64,22 @@ export default{
     created(){
         let data = getData();
         this.isAlwaysTop = data['alwaysTop'];
+
+        this.$nextTick(() => {
+            let state = data['darkTheme'];
+            let ele = document.getElementById("app");
+            if(state){
+                ele.classList.remove("primary_color");
+                ele.classList.add("dark_color");
+            } else {
+                ele.classList.remove("dark_color");
+                ele.classList.add("primary_color");
+            }
+        });
+        
         ipcRenderer.send('window:initTop', this.isAlwaysTop);
     },
-
+    
     methods: {
         togglePage(name){
             this.currentPage = name;

@@ -21,4 +21,12 @@
     --todo-list-item-textcolor: black;
     --todo-list-item-img-container-backcolor: #EEEEEE;
     --todo-list-item-datetime-textcolor: #A8A8A8;
+
+    --setting-textcolor: black;
+    --setting-item-backcolor: #F6F6F6;
+
+    --checkbox-backcolor: #D8D8D8;
+    --togglebox-textcolor: white;
+    --togglebox-disable-backcolor: #949494;
+    --togglebox-enable-backcolor: #749DAE; 
 }
