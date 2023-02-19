@@ -1,4 +1,24 @@
 .primary_color{
     --navbar-backcolor: #EBF3FE;
     --navbar-textcolor: black;
+
+    --main-backcolor: white;
+    --header-backcolor: #ECECEC;
+
+    --tabbar-backcolor: #F4F4F4;
+    --tabbar-header-border-color: #DFDFDF;
+    --tabbar-header-textcolor: black;
+    --tabbar-item-hover-backcolor: white;
+    --tabbar-item-enable-backcolor: white;
+    --tabbar-item-enable-textcolor: black;
+    --tabbar-item-disable-textcolor: #ACA9A9;
+    --tabbar-item-copyright-textcolor: black;
+
+    --todo-header-textcolor: black;
+    --todo-header-border-color: #DFDFDF;
+    --todo-header-button-backcolor: white;
+    --todo-list-item-backcolor: #F6F6F6;
+    --todo-list-item-textcolor: black;
+    --todo-list-item-img-container-backcolor: #EEEEEE;
+    --todo-list-item-datetime-textcolor: #A8A8A8;
 }

@@ -1,11 +1,11 @@
-<template>
+<template>  
   <div id="app" class="primary_color">
     <MainPage />
   </div>
 </template>
 
 <script>
-  import MainPage from "@/components/MainPage.vue";
+  import MainPage from "@/pages/MainPage.vue";
 
   export default {
     name: 'lbl-note',
@@ -28,7 +28,7 @@
 }
 
 html, body{
-  width: 350px;
+  width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;

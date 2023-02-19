@@ -22,14 +22,12 @@ function createWindow () {
   const { width: screenW, height: screenH } = screen.getPrimaryDisplay().workAreaSize;
 
   mainWindow = new BrowserWindow({
-    minWidth: 350,
-    maxWidth: 650,
-    width: 350,
-    minHeight: 200,
-    maxHeight: 450,
-    height: 260,
-    x: screenW - 350,
-    y: 0,
+    minWidth: 850,
+    width: 850,
+    minHeight: 600,
+    height: 600,
+    // x: screenW - 350,
+    // y: 0,
     useContentSize: true,
     webPreferences: {
       nodeIntegration: true
@@ -51,13 +49,13 @@ function createWindow () {
   })
 
   //窗口吸附
-  setInterval(() => {
-    let [x, y] = mainWindow.getPosition();
+  // setInterval(() => {
+  //   let [x, y] = mainWindow.getPosition();
 
-    if(screenW - (x + 350) < 0){
-      mainWindow.setPosition(screenW - 350, y, 0);
-    }
-  }, 500);
+  //   if(screenW - (x + 350) < 0){
+  //     mainWindow.setPosition(screenW - 350, y, 0);
+  //   }
+  // }, 500);
 }
 
 app.on('ready', createWindow)
@@ -80,6 +78,10 @@ ipcMain.on('window:close', () => {
 
 ipcMain.on('window:minimize', () => {
   mainWindow.minimize();
+});
+
+ipcMain.on('window:initTop', (e, state) => {
+  top = state;
 });
 
 ipcMain.on('window:top', () => {
