@@ -5,7 +5,7 @@
             <img v-on:click="top()" src="@/assets/icons/screen-top-enable.png" v-else/>
             <img v-on:click="minimize()" style="margin-left: 0;" src="@/assets/icons/minimize.png" />
             <img v-on:click="close()" style="margin-left: 0;" src="@/assets/icons/close.png" />
-        </div>
+        </div>   
         <div class="app-main-content">
             <div class="app-main-tabbar">
                 <div class="app-main-tabbar-header">
@@ -43,15 +43,15 @@
 import { ipcRenderer } from "electron";
 import { getData, saveData } from "../utils/utils";
 
-import ToDo from "@/pages/ToDo.vue";
-import Done from "@/pages/Done.vue";
-import Setting from "@/pages/Setting.vue";
+import ToDo from "@/views/ToDo.vue";
+import Done from "@/views/Done.vue";
+import Setting from "@/views/Setting.vue";
 
 export default{
     components: {
         ToDo,
         Done,
-        Setting
+        Setting,
     },
 
     data(){
@@ -75,9 +75,9 @@ export default{
                 ele.classList.remove("dark_color");
                 ele.classList.add("primary_color");
             }
+
+            ipcRenderer.send('window:initTop', this.isAlwaysTop);
         });
-        
-        ipcRenderer.send('window:initTop', this.isAlwaysTop);
     },
     
     methods: {
