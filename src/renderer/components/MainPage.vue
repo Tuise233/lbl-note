@@ -71,9 +71,9 @@ export default{
 
     created(){
         //判断是否存在数据
-        let data = localStorage.getItem("lbl-note-data2");
+        let data = localStorage.getItem("lbl-note-data");
         if(data == null){
-            localStorage.setItem("lbl-note-data2", JSON.stringify({
+            localStorage.setItem("lbl-note-data", JSON.stringify({
                 todo: [],
                 done: [],
                 isAutoBoot: false
@@ -243,7 +243,7 @@ export default{
                     break;
                 }
             }
-            localStorage.setItem('lbl-note-data2', JSON.stringify({
+            localStorage.setItem('lbl-note-data', JSON.stringify({
                 todo: this.todo,
                 done: this.done,
                 isAutoBoot: this.isAutoBoot

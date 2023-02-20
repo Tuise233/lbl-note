@@ -36,10 +36,13 @@ function createWindow () {
     transparent: true
   })
 
+  mainWindow.webContents.openDevTools();
+
   mainWindow.loadURL(winURL)
 
   // 设置窗口是否可以由用户手动最大化。
   mainWindow.setMaximizable(false)
+  
   
   // 设置用户是否可以调节窗口尺寸
   // mainWindow.setResizable(false)

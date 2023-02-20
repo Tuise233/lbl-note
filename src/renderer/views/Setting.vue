@@ -25,7 +25,7 @@
             <div class="app-setting-content-item">
                 <div class="app-setting-content-item-row">
                     <span>初始化</span>
-                    <button>清空数据</button>
+                    <button v-on:click="clearData">清空数据</button>
                 </div>
 
                 <div class="app-setting-content-item-row">
@@ -46,7 +46,7 @@
 import CheckBox from "../components/CheckBox.vue";
 import ToggleBox from "../components/ToggleBox.vue";
 import { ipcRenderer } from "electron";
-import { getData, saveData, toggleTheme } from "../utils/utils";
+import { clearData, getData, saveData, toggleTheme } from "../utils/utils";
 
 export default{
     data(){
@@ -93,6 +93,10 @@ export default{
                     break;
                 }
             }
+        },
+        
+        clearData(){
+            clearData();
         }
     }
 }
