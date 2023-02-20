@@ -5,6 +5,11 @@ module.exports = defineConfig({
     'style-resources-loader': {
       preProcessor: 'less',
       patterns: [path.join(__dirname, "./src/assets/style/index.less")]
+    },
+    electronBuilder: {
+      builderOptions: {
+        'productName': "拉布拉记"
+      }
     }
   }
 })

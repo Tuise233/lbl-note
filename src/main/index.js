@@ -1,4 +1,5 @@
-import { app, BrowserWindow, ipcMain, screen } from 'electron'
+import { app, BrowserWindow, ipcMain, Menu, screen, Tray } from 'electron'
+import path from 'path';
 import '../renderer/store'
 
 /**
@@ -19,8 +20,6 @@ function createWindow () {
   /**
    * Initial window options
    */
-  const { width: screenW, height: screenH } = screen.getPrimaryDisplay().workAreaSize;
-
   mainWindow = new BrowserWindow({
     minWidth: 850,
     width: 850,
@@ -36,7 +35,9 @@ function createWindow () {
     transparent: true
   })
 
-  mainWindow.webContents.openDevTools();
+  mainWindow.on('closed', () => {
+    mainWindow = null
+  })
 
   mainWindow.loadURL(winURL)
 
@@ -44,21 +45,35 @@ function createWindow () {
   mainWindow.setMaximizable(false)
   
   
+  
   // 设置用户是否可以调节窗口尺寸
   // mainWindow.setResizable(false)
 
-  mainWindow.on('closed', () => {
-    mainWindow = null
-  })
+  //系统托盘
+  var trayMenu = [{
+    label: "显示窗口",
+    click: () => {
+      mainWindow.show();
+    }
+  }, {
+    label: "退出",
+    click: () => {
+      app.quit(); 
+    }
+  }];
 
-  //窗口吸附
-  // setInterval(() => {
-  //   let [x, y] = mainWindow.getPosition();
+  // let iconPath = path.join(__dirname, "../renderer/assets/icons/trayLogo.png");
+  let iconPath = path.join(__dirname, "/static/trayLogo.png");
+  console.log(iconPath, __dirname);
+  let appTray = new Tray(iconPath);
+  const contextMenu = Menu.buildFromTemplate(trayMenu);
+  appTray.setToolTip("拉布拉记");
+  appTray.setContextMenu(contextMenu);
 
-  //   if(screenW - (x + 350) < 0){
-  //     mainWindow.setPosition(screenW - 350, y, 0);
-  //   }
-  // }, 500);
+  appTray.on("click", () => {
+      mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
+      //appTray.destroy();
+  });
 }
 
 app.on('ready', createWindow)
@@ -76,7 +91,7 @@ app.on('activate', () => {
 })
 
 ipcMain.on('window:close', () => {
-  app.quit();
+  mainWindow.hide();
 });
 
 ipcMain.on('window:minimize', () => {

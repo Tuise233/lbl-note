@@ -41,7 +41,7 @@
 
 <script> 
 import { ipcRenderer } from "electron";
-import { getData, saveData } from "../utils/utils";
+import { getData, saveData, toggleTheme } from "../utils/utils";
 
 import ToDo from "@/views/ToDo.vue";
 import Done from "@/views/Done.vue";
@@ -66,16 +66,7 @@ export default{
         this.isAlwaysTop = data['alwaysTop'];
 
         this.$nextTick(() => {
-            let state = data['darkTheme'];
-            let ele = document.getElementById("app");
-            if(state){
-                ele.classList.remove("primary_color");
-                ele.classList.add("dark_color");
-            } else {
-                ele.classList.remove("dark_color");
-                ele.classList.add("primary_color");
-            }
-
+            toggleTheme(data['darkTheme']);
             ipcRenderer.send('window:initTop', this.isAlwaysTop);
         });
     },

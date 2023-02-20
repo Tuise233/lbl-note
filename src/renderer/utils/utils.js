@@ -50,7 +50,4 @@ export function toggleTheme(isDark){
         ele.classList.remove("dark_color");
         ele.classList.add("primary_color");
     }
-
-    //icon颜色
-    document.getElementById("screen-top-disable").src = isDark ? "@/assets/icons/screen-top-disable.png" : "@/assets/icons/screen-top-disable-white.png"
 }
