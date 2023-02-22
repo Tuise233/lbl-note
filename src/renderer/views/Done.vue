@@ -13,9 +13,12 @@
                         <span style="font-size: 12px; margin-top: 12px;">{{ item.text }}</span>
                         <div style="display: flex; align-items: center; margin-top: 12px;">
                             <div style="display: flex; align-items: center;">
-                                <div v-on:click="topDone(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/top.png"></div>
-                                <div v-on:click="backDone(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/back.png"></div>
-                                <div v-on:click="deleteDone(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/delete.png"></div>
+                                <div v-on:click="topDone(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/top.png"></div>
+                                <div v-on:click="topDone(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/top-white.png"></div>
+                                <div v-on:click="backDone(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/back.png"></div>
+                                <div v-on:click="backDone(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/back-white.png"></div>
+                                <div v-on:click="deleteDone(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/delete.png"></div>
+                                <div v-on:click="deleteDone(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/delete-white.png"></div>
                             </div>
                             <span class="app-todo-list-item-datetime">完成于 {{ item.date }}</span>
                         </div>
@@ -28,9 +31,12 @@
                         <span style="font-size: 12px; margin-top: 12px;">{{ item.text }}</span>
                         <div style="display: flex; align-items: center; margin-top: 12px;">
                             <div style="display: flex; align-items: center;">
-                                <div v-on:click="topDone(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/top.png"></div>
-                                <div v-on:click="backDone(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/back.png"></div>
-                                <div v-on:click="deleteDone(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/delete.png"></div>
+                                <div v-on:click="topDone(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/top.png"></div>
+                                <div v-on:click="topDone(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/top-white.png"></div>
+                                <div v-on:click="backDone(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/back.png"></div>
+                                <div v-on:click="backDone(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/back-white.png"></div>
+                                <div v-on:click="deleteDone(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/delete.png"></div>
+                                <div v-on:click="deleteDone(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/delete-white.png"></div>
                             </div>
                             <span class="app-todo-list-item-datetime">完成于 {{ item.date }}</span>
                         </div>

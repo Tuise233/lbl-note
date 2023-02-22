@@ -1,6 +1,6 @@
 {
   "name": "lbl-note",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A custom note software",
   "author": "拉布拉马 <2039203690@qq.com>",
   "scripts": {
@@ -22,7 +22,7 @@
     "vue": "^2.5.16",
     "vue-electron": "^1.0.6",
     "vuex": "^3.0.1",
-    "vuex-electron": "^1.0.0"
+    "vuex-electron": "^1.0.3"
   },
   "devDependencies": {
     "ajv": "^6.5.0",

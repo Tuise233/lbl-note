@@ -1,6 +1,7 @@
 <template>
     <div class="app-c-checkbox" v-on:click="toggleCheckBox">
-        <img src="@/assets/icons/checked.png" v-if="isCheck == true"/>
+        <img src="@/assets/icons/checked.png" v-if="isCheck == true && $store.state.darkTheme == false"/>
+        <img src="@/assets/icons/checked-white.png" v-if="isCheck == true && $store.state.darkTheme == true"/>
     </div>
 </template>
 

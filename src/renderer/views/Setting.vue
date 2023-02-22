@@ -86,6 +86,7 @@ export default{
             switch(name){
                 case "theme":{
                     this.darkTheme = state;
+                    this.$store.state.darkTheme = state;
                     toggleTheme(state);
                     saveData({
                         darkTheme: this.darkTheme

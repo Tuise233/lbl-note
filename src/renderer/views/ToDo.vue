@@ -4,7 +4,8 @@
             <span>{{ todoList.length }}</span>
             <span>个待办事项</span>
             <div class="app-todo-header-btn" v-on:click="createNewTodo()">
-                <img src="@/assets/icons/new.png" />
+                <img src="@/assets/icons/new.png" v-if="$store.state.darkTheme == false"/>
+                <img src="@/assets/icons/new-white.png" v-else/>
             </div>
         </div>
         
@@ -16,10 +17,14 @@
                         <span style="font-size: 12px; margin-top: 12px;" contenteditable @focus="focusTodoText(item)" @focusout="unfocusTodoText($event, item)">{{ item.text }}</span>
                         <div style="display: flex; align-items: center; margin-top: 12px;">
                             <div style="display: flex; align-items: center;">
-                                <div v-on:click="topTodo(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/top.png"></div>
-                                <div v-on:click="doneTodo(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/done.png"></div>
-                                <div v-on:click="deleteTodo(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/delete.png"></div>
-                                <div class="app-todo-list-item-img-container"><img src="@/assets/icons/setting.png"></div>
+                                <div v-on:click="topTodo(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/top.png"></div>
+                                <div v-on:click="topTodo(item)" class="app-todo-list-item-img-container"  v-else><img src="@/assets/icons/top-white.png"></div>
+                                <div v-on:click="doneTodo(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/done.png"></div>
+                                <div v-on:click="doneTodo(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/done-white.png"></div>
+                                <div v-on:click="deleteTodo(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/delete.png"></div>
+                                <div v-on:click="deleteTodo(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/delete-white.png"></div>
+                                <div class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/setting.png"></div>
+                                <div class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/setting-white.png"></div>
                             </div>
                             <span class="app-todo-list-item-datetime">创建于 {{ item.date }}</span>
                         </div>
@@ -32,10 +37,14 @@
                         <span style="font-size: 12px; margin-top: 12px;" contenteditable @focus="focusTodoText(item)" @focusout="unfocusTodoText($event, item)">{{ item.text }}</span>
                         <div style="display: flex; align-items: center; margin-top: 12px;">
                             <div style="display: flex; align-items: center;">
-                                <div v-on:click="topTodo(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/top.png"></div>
-                                <div v-on:click="doneTodo(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/done.png"></div>
-                                <div v-on:click="deleteTodo(item)" class="app-todo-list-item-img-container"><img src="@/assets/icons/delete.png"></div>
-                                <div class="app-todo-list-item-img-container"><img src="@/assets/icons/setting.png"></div>
+                                <div v-on:click="topTodo(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/top.png"></div>
+                                <div v-on:click="topTodo(item)" class="app-todo-list-item-img-container"  v-else><img src="@/assets/icons/top-white.png"></div>
+                                <div v-on:click="doneTodo(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/done.png"></div>
+                                <div v-on:click="doneTodo(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/done-white.png"></div>
+                                <div v-on:click="deleteTodo(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/delete.png"></div>
+                                <div v-on:click="deleteTodo(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/delete-white.png"></div>
+                                <div class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/setting.png"></div>
+                                <div class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/setting-white.png"></div>
                             </div>
                             <span class="app-todo-list-item-datetime">创建于 {{ item.date }}</span>
                         </div>

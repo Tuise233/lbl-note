@@ -1,17 +1,18 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import VueX from "vuex";
 
-import { createPersistedState, createSharedMutations } from 'vuex-electron'
+Vue.use(VueX);
 
-import modules from './modules'
+export default new VueX.Store({
+  state: {
+    darkTheme :false
+  },
 
-Vue.use(Vuex)
+  actions: {
 
-export default new Vuex.Store({
-  modules,
-  plugins: [
-    createPersistedState(),
-    createSharedMutations()
-  ],
-  strict: process.env.NODE_ENV !== 'production'
-})
+  },
+
+  mutations: {
+    
+  }
+});

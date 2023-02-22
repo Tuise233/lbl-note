@@ -1,10 +1,14 @@
 <template>
     <div class="app-main">
         <div class="app-main-header">
-            <img v-on:click="top()" src="@/assets/icons/screen-top-disable.png" v-if="isAlwaysTop == false"/>
-            <img v-on:click="top()" src="@/assets/icons/screen-top-enable.png" v-else/>
-            <img v-on:click="minimize()" style="margin-left: 0;" src="@/assets/icons/minimize.png" />
-            <img v-on:click="close()" style="margin-left: 0;" src="@/assets/icons/close.png" />
+            <img v-on:click="top()" src="@/assets/icons/screen-top-disable.png" v-if="isAlwaysTop == false && $store.state.darkTheme == false"/>
+            <img v-on:click="top()" src="@/assets/icons/screen-top-disable-white.png" v-if="isAlwaysTop == false && $store.state.darkTheme == true"/>
+            <img v-on:click="top()" src="@/assets/icons/screen-top-enable.png" v-if="isAlwaysTop == true && $store.state.darkTheme == false"/>
+            <img v-on:click="top()" src="@/assets/icons/screen-top-enable-white.png" v-if="isAlwaysTop == true && $store.state.darkTheme == true"/>
+            <img v-on:click="minimize()" style="margin-left: 0;" src="@/assets/icons/minimize.png" v-if="$store.state.darkTheme == false"/>
+            <img v-on:click="minimize()" style="margin-left: 0;" src="@/assets/icons/minimize-white.png" v-else/>
+            <img v-on:click="close()" style="margin-left: 0;" src="@/assets/icons/close.png" v-if="$store.state.darkTheme == false"/>
+            <img v-on:click="close()" style="margin-left: 0;" src="@/assets/icons/close-white.png" v-else/>
         </div>   
         <div class="app-main-content">
             <div class="app-main-tabbar">
@@ -66,6 +70,7 @@ export default{
         this.isAlwaysTop = data['alwaysTop'];
 
         this.$nextTick(() => {
+            this.$store.state.darkTheme = data['darkTheme'];
             toggleTheme(data['darkTheme']);
             ipcRenderer.send('window:initTop', this.isAlwaysTop);
         });
@@ -173,7 +178,6 @@ export default{
     cursor: pointer;
     font-size: 18px;
     color: @tabbar-item-disable-textcolor;
-    transition: all 0.1s;
 }
 
 .app-main-tabbar-item:hover{

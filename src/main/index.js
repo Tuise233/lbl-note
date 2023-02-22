@@ -63,8 +63,9 @@ function createWindow () {
   }];
 
   // let iconPath = path.join(__dirname, "../renderer/assets/icons/trayLogo.png");
-  let iconPath = path.join(__dirname, "/static/trayLogo.png");
-  console.log(iconPath, __dirname);
+  //let iconPath = path.join(__dirname, "/static/trayLogo.png");
+  let iconPath = process.env.NODE_ENV !== 'development' ? path.join(__dirname, "/static/trayLogo.png") : path.join(__dirname, "../renderer/assets/icons/trayLogo.png");
+
   let appTray = new Tray(iconPath);
   const contextMenu = Menu.buildFromTemplate(trayMenu);
   appTray.setToolTip("拉布拉记");
