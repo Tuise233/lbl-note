@@ -48,7 +48,8 @@
 </template>
 
 <script>
-import { formatDateTime, getData, saveData } from "../utils/utils";
+import { formatDateTime } from "../utils/datetime";
+import { getData, saveData } from "../utils/localstorage";
 
 export default{
     data(){

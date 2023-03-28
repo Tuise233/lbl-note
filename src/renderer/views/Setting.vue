@@ -46,7 +46,7 @@
 import CheckBox from "../components/CheckBox.vue";
 import ToggleBox from "../components/ToggleBox.vue";
 import { ipcRenderer } from "electron";
-import { clearData, getData, saveData, toggleTheme } from "../utils/utils";
+import { clearData, getData, saveData, toggleTheme } from "../utils/localstorage";
 
 export default{
     data(){

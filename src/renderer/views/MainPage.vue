@@ -45,7 +45,7 @@
 
 <script> 
 import { ipcRenderer } from "electron";
-import { getData, saveData, toggleTheme } from "../utils/utils";
+import { getData, saveData, toggleTheme } from "../utils/localstorage";
 
 import ToDo from "@/views/ToDo.vue";
 import Done from "@/views/Done.vue";

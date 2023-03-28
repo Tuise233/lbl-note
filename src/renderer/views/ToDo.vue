@@ -23,8 +23,8 @@
                                 <div v-on:click="doneTodo(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/done-white.png"></div>
                                 <div v-on:click="deleteTodo(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/delete.png"></div>
                                 <div v-on:click="deleteTodo(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/delete-white.png"></div>
-                                <div class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/setting.png"></div>
-                                <div class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/setting-white.png"></div>
+                                <div v-on:click="openSetting(item)" class="app-todo-list-item-img-container" v-if="$store.state.darkTheme == false"><img src="@/assets/icons/setting.png"></div>
+                                <div v-on:click="openSetting(item)" class="app-todo-list-item-img-container" v-else><img src="@/assets/icons/setting-white.png"></div>
                             </div>
                             <span class="app-todo-list-item-datetime">创建于 {{ item.date }}</span>
                         </div>
@@ -56,7 +56,8 @@
 </template>
 
 <script>
-import { formatDateTime, getData, saveData } from "../utils/utils";
+import { formatDateTime } from "../utils/datetime";
+import { getData, saveData } from "../utils/localstorage";
 
 export default{
     data(){
@@ -184,6 +185,10 @@ export default{
                     this.todoRight.push(this.todoList[i]);
                 }
             }
+        },
+
+        openSetting(item){
+            console.log(item);
         }
     }
 }
